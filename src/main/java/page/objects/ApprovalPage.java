@@ -1,7 +1,9 @@
 package page.objects;
 
+import base.BrowserDriver;
 import com.beust.jcommander.Parameters;
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.Select;
@@ -12,7 +14,7 @@ import java.util.List;
 
 import static javafx.scene.input.KeyCode.W;
 
-public class ApprovalPage {
+public class ApprovalPage extends BrowserDriver {
 
     @FindBy(how = How.CSS, using = "[type='radio'][value='false']")
     public WebElement radio;
@@ -86,6 +88,15 @@ public class ApprovalPage {
     @FindBy(xpath = "//*[@id='root']/div/main/div/div[1]/div[2]/div[1]/div/div/form/div[4]/button")
     public WebElement submit;
 
+    @FindBy(css = "#root > div > main > div > header > div > label")
+    public WebElement menu1;
+    @FindBy(xpath = "//body[@class='expansion-alids-init']/div[@id='root']/div[@class='layout__wrap']/main[@class='container-fluid layout__main layout-default']/div/header[@class='header header--collapsed']/div[@class='header-nav']/label[1]")
+    public WebElement menu2;
+    @FindBy(xpath = "//label[text()='Menu']")
+    public WebElement menu;
+    @FindBy(css = "#root > div > main > div > header > div > nav > ul > li:nth-child(1) > a")
+    public WebElement document;
+
     public void setFirstName(String firstName) {
         this.firstName.sendKeys(firstName);
     }
@@ -123,30 +134,51 @@ public class ApprovalPage {
 
     }
 
+    public void setMenu() {
+        this.menu.click();
+    }
+
+    public void setDocument() {
+        this.document.click();
+    }
+
     public void emailAddress(String emailAddress) throws ElementNotInteractableException {
         this.emailAddress.sendKeys(emailAddress);
         try {
-            Thread.sleep(300);{
+            Thread.sleep(300);
+            {
 
             }
-        }catch (ElementNotInteractableException e){
+        } catch (ElementNotInteractableException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
-    public void setPassWord(String passWord){
+
+    public void setPassWord(String passWord) {
         this.passWord.sendKeys(passWord);
     }
 
-    public void termsofUse(){
+    public void termsofUse() {
         this.termsofUse.isSelected();
         termsofUse.click();
     }
 
-    public void submit(){
+    public void submit() throws InterruptedException {
         this.submit.click();
+        Thread.sleep(5000);
 
+    }
+
+    public void clickOnMenu() throws InterruptedException {
+        setMenu();
+        Thread.sleep(5000);
+    }
+
+    public void clickOnDocument() throws InterruptedException {
+        setDocument();
+        Thread.sleep(5000);
     }
 
 

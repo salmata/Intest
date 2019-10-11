@@ -25,7 +25,7 @@ public class BrowserDriver {
             /*@Optional("windows") String os,*/ @Optional("10") String os_version, @Optional("firefox") String browserName, @Optional("34")
                               String browserVersion, @Optional("https://www.credify.tech/phone/nonDMFunnel") String url) throws IOException {
 
-        System.setProperty("webdriver.chrome.driver", "drivers/mac/chromedriver");
+        System.setProperty("webdriver.chrome.driver", "drivers/mac/chromedriver.exe");
 
         driver = new ChromeDriver();
         driver.manage().window().fullscreen();
@@ -49,7 +49,7 @@ public class BrowserDriver {
             capabilities.setCapability(ChromeOptions.CAPABILITY, options);
 
             if (os.equalsIgnoreCase("windows")) {
-                System.setProperty("webdriver.chrome.driver", "drivers/mac/chromedriver");
+                System.setProperty("webdriver.chrome.driver", "drivers/mac/chromedriver.exe");
                 driver = new ChromeDriver(options);
             } else if (os.equalsIgnoreCase("mac")) {
                 System.setProperty("webdriver.chrome.driver", "drivers/mac/chromedriver");

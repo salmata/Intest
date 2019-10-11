@@ -19,7 +19,7 @@ public class ApprovalPageTest extends BrowserDriver {
     }
 
     @Test
-    public void testCheckRate()throws IOException  {
+    public void testCheckRate() throws IOException, InterruptedException {
 
         String firstName = "John";
 
@@ -40,15 +40,18 @@ public class ApprovalPageTest extends BrowserDriver {
         approvalPage.setPassWord(password);
         approvalPage.termsofUse();
         approvalPage.submit();
+        approvalPage.clickOnMenu();
+        approvalPage.clickOnDocument();
 
-        String str = "Loan Amount; Monthly Payment; 36 Month Term; 11.40% Interest Rate; APR";
-        BufferedWriter writer = new BufferedWriter(new FileWriter("data/"+firstName.toLowerCase()+".txt", true));
-        writer.append(str);
-        writer.close();
+
+//        String str = "Loan Amount; Monthly Payment; 36 Month Term; 11.40% Interest Rate; APR";
+//        BufferedWriter writer = new BufferedWriter(new FileWriter("data/"+firstName.toLowerCase()+".txt", true));
+//        writer.append(str);
+//        writer.close();
 
     }
 
-    @Test
+    @Test(enabled = false)
     public void checkOfferData() throws IOException {
         String b = Utils.readFile("data/text.txt");
         String[] inputData = b.split(";");
