@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: TestSuite
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 37.395 sec <<< FAILURE!
+testCheckRate(ApprovalPageTest)  Time elapsed: 0.003 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at ApprovalPageTest.testCheckRate(ApprovalPageTest.java:26)
+

@@ -1,0 +1,6 @@
+application/base/page/ApplicationBasePage.class
+base/BrowserDriver.class
+page/objects/HomePage.class
+page/objects/ApprovalPage.class
+application/base/page/Utils.class
+page/objects/PayOffOffer.class
